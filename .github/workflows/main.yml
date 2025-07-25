@@ -1,4 +1,4 @@
-name: Deploy Laravel Project on push
+name: 🚀 Deploy Laravel Project on Push
 
 on:
   push:
@@ -7,38 +7,41 @@ on:
 
 jobs:
   web-deploy:
-    name: Deploy
+    name: 🚀 Deploy to cPanel
     runs-on: ubuntu-latest
 
     steps:
-      - name: Get the latest code
-        uses: actions/checkout@v2.3.2
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v2
 
-      - name: Set up PHP
+      - name: 🧰 Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
 
-      - name: Setup Node.js
+      - name: 🧰 Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'  # Specify the version of Node.js you want to use
+          node-version: '14'
 
-      - name: Install Dependencies
-        run: composer update --ignore-platform-reqs
+      - name: ⚙️ Install Composer Dependencies
+        run: composer install --no-dev --optimize-autoloader --no-interaction
 
-      # - name: Generate key
-      #   run: php artisan key:generate
-
-      # - name: Run Migration
-      #   run: php artisan migrate --force
-
-      - name: Directory Permissions
+      - name: 🔓 Set Directory Permissions
         run: chmod -R 777 storage bootstrap/cache
 
-      - name: 📂 Sync files
+      - name: 📂 Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ftp.easeneurocare.org
           username: cicd@easeneurocare.org
           password: Olalekan@777
+          server-dir: /public_html/ease/
+          exclude: |
+            **/.git*
+            **/.github*
+            node_modules/*
+            vendor/*
+            .env
+            .env.*
+            tests/*
