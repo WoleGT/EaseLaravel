@@ -37,7 +37,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: ${{ secrets.FTP_PORT }}
-          server-dir: /public_html/easeneurocare.org/cicd/ease/public
+          server-dir: /public_html/easeneurocare.org/cicd/ease
 
           exclude: |
             **/.git*
