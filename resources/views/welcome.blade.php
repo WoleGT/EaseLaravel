@@ -532,7 +532,7 @@
 										<span class="fa fa-star"></span>
 										<span class="fa fa-star"></span>
 									</p>
-									<p>Far far away, behind the word mountains, far from the countries Vokalia</p>
+									<p>As the Parent Lead at Ease Neurocare</p>
 									<p class="name">Wole George-Taylor</p>
 									<span class="position">Web Developer</span>
 								</div>
